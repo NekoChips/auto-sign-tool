@@ -1,0 +1,38 @@
+server:
+  port: 18080
+  
+auto:
+  servers:
+    ## 黑客派社区服务
+    hacpai:
+      # 签到地址
+      url: https://hacpai.com/activity/checkin
+      login-url: https://hacpai.com/api/v2/login
+      logout-url: https://hacpai.com/api/v2/logout
+      # 登录参数
+      login-params:
+        userName: test
+        userPassword: test
+        captcha:
+      # 自定义 User-Agent, 部分服务不允许使用默认的 User-Agent
+      ua: Auto-Sign/1.0.0
+      # cookie 名称
+      cookie-name: symphony
+      # 定时任务 cron 表达式
+      cron: 0 0 1 ? * *
+      # response 参数字段，用于解析请求响应
+      response:
+        code: sc
+        message: msg
+        token: token
+        success: 0
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/test?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    username: test
+    password: test
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml

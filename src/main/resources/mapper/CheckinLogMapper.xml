@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.nekochips.sign.Mapper.CheckinLogMapper">
+
+    <resultMap id="checkinLogMap" type="com.nekochips.sign.bean.CheckinLog">
+        <id property="id" column="id" javaType="Long"/>
+        <result property="server" column="server" javaType="String"/>
+        <result property="username" column="username" javaType="String"/>
+        <result property="message" column="message" javaType="String"/>
+        <result property="checkinDays" column="checkin_days" javaType="Integer"/>
+        <result property="signTime" column="gmt_create" javaType="String"/>
+    </resultMap>
+
+    <sql id="base_column">
+        id, server, username, message, checkin_days, gmt_create
+    </sql>
+
+    <insert id="insert" parameterType="com.nekochips.sign.bean.CheckinLog">
+        insert into log_checkin
+            (server, message, checkin_days)
+        values (#{server, javaType=String},
+                #{message, javaType=String},
+                #{checkinDays, javaType=Integer})
+    </insert>
+
+    <select id="findByServer" resultMap="checkinLogMap">
+        select
+        <include refid="base_column"/>
+        from log_checkin
+        where server = #{server, javaType=String}
+    </select>
+
+</mapper>
