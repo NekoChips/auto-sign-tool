@@ -1,7 +1,7 @@
 package com.nekochips.sign.service.impl;
 
 import com.nekochips.sign.bean.CheckinLog;
-import com.nekochips.sign.Mapper.CheckinLogMapper;
+import com.nekochips.sign.mapper.CheckinLogMapper;
 import com.nekochips.sign.service.ICheckinLogService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

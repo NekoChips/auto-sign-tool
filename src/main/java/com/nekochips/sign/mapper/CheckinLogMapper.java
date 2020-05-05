@@ -1,4 +1,4 @@
-package com.nekochips.sign.Mapper;
+package com.nekochips.sign.mapper;
 
 import com.nekochips.sign.bean.CheckinLog;
 import org.apache.ibatis.annotations.Mapper;

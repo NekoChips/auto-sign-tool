@@ -3,7 +3,7 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.nekochips.sign.Mapper.CheckinLogMapper">
+<mapper namespace="com.nekochips.sign.mapper.CheckinLogMapper">
 
     <resultMap id="checkinLogMap" type="com.nekochips.sign.bean.CheckinLog">
         <id property="id" column="id" javaType="Long"/>
