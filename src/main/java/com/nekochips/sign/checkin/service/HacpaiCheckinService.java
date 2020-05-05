@@ -76,7 +76,7 @@ public class HacpaiCheckinService extends AbstractCheckinService {
 
     @Override
     public JSONObject login(AutoCheckinProperties.Server server) {
-        Map<String, String> loginParams = server.getLoginParams();
+        Map<String, String> loginParams = new HashMap<>(server.getLoginParams());
         ResponseEntity<JSONObject> respEntity =
                 restTemplate.postForEntity(server.getLoginUrl(),
                         buildRequestContent(loginParams, server.getUa()), JSONObject.class);
@@ -115,7 +115,6 @@ public class HacpaiCheckinService extends AbstractCheckinService {
             });
             reqContent = ((JSONObject) JSON.toJSON(params));
         }
-
         return new HttpEntity<>(reqContent, headers);
     }
 
