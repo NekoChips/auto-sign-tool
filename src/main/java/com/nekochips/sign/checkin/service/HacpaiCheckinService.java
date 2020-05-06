@@ -5,6 +5,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.nekochips.sign.bean.CheckinLog;
 import com.nekochips.sign.checkin.props.AutoCheckinProperties;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 import org.jsoup.Connection;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -127,8 +128,8 @@ public class HacpaiCheckinService extends AbstractCheckinService {
     private Map<String, String> parseDocument(Document document) {
         Map<String, String> result = new HashMap<>(4);
         String text = document.select("h2.sub-head > span.ft-gray").text();
-        String[] texts = text.split("，");
-        String days = texts[1].substring(3, 4);
+        String[] texts = text.split("\\uff0c");
+        String days = StringUtils.substringBefore(texts[1].substring(3), "\u5929").trim();
         
         Elements elements = document.select("div.module__body > div.vditor-reset");
         StringBuilder message = new StringBuilder(elements.text());
