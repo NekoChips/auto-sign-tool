@@ -13,10 +13,10 @@
 
 ### Linux
 将打包后生成的 `auto-sign-tool.zip` 解压，执行 `bin/sign.sh` 文件：
-1. ./sign.sh start 启动
-2. ./sign.sh stop 停止
-3. ./sign.sh restart 重启
-4. ./sign.sh status 查看状态
+1. ./sign.sh start      启动
+2. ./sign.sh stop       停止
+3. ./sign.sh restart    重启
+4. ./sign.sh status     查看状态
 
 ## 版本介绍
 ### v1.0.0
@@ -49,6 +49,11 @@ auto:
         success: 0
 ```
 2. 提供了公共的模板抽象类 `AbstractCheckinService`，如需添加其它的自动签到功能，只需继承该类并实现抽象方法即可。具体实现可看源码。
+
+### v1.0.1
+1. 将 mysql 数据库修改为 h2 内嵌式数据库。
+2. 项目启动成功后，访问 `http://ip:host/h2-console` 即可进入 h2 web console 页面，查询相关数据。
+3. 修改 ./sign.sh 启动文件最小启动内存配置，修复启动时报启动内存不足问题。
 
 ## 鸣谢
 1. 感谢 [黑客派](https://hacpai.com/) 提供的开放接口 API。
