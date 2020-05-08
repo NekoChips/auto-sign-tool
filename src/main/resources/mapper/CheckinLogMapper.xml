@@ -20,8 +20,9 @@
 
     <insert id="insert" parameterType="com.nekochips.sign.bean.CheckinLog">
         insert into log_checkin
-            (server, message, checkin_days)
+            (server, username, message, checkin_days)
         values (#{server, javaType=String},
+                #{username, javaType=String},
                 #{message, javaType=String},
                 #{checkinDays, javaType=Integer})
     </insert>

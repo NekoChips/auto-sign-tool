@@ -29,10 +29,17 @@ auto:
 
 spring:
   datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://127.0.0.1:3306/test?useUnicode=true&characterEncoding=utf-8&useSSL=false
-    username: test
-    password: test
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:file:./db/h2DB
+    username: tool
+    password: tool
+    ## 初始化建表语句
+#    schema: classpath:db/schema.sql
+  h2:
+    console:
+      ## h2 web console 页面，默认 h2-console
+#      path: /h2
+      enabled: true
 
 mybatis:
-  mapper-locations: classpath:mapper/*.xml
+  mapper-locations: classpath:mapper/*.xml 

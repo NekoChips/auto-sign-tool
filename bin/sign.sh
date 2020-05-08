@@ -7,10 +7,10 @@ base_home=$(cd `dirname $0`/..; pwd)
 #获取启动jar包名称
 app_name=$(cd $base_home && ls *.jar)
 #jdk启动参数
-java_opts="-server -Xms128m -Xmx256m -Xmn128m -Xss128k -Duser.dir=$base_home -Djava.security.egd=file:/dev/../dev/urandom"
+java_opts="-server -Xms128m -Xmx256m -Xmn128m -Xss256k -Duser.dir=$base_home -Djava.security.egd=file:/dev/.
+./dev/urandom"
 #springboot启动参数
 spring_config=""
-
 
 is_exist(){
   pid=`ps -ef|grep $base_home/$app_name|grep -v grep|awk '{print $2}' `
